@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .demobut{
+        background-color: black;
+        color: azure;
+        }
+    </style>
+
+</head>
+<body>
+    <div class="main">
+        
+        <h1>Guss game</h1><br>
+        <div class="">
+          <div>Remaining chances <span class="chance">10</span> 
+          </div>
+            <input type="text" class="input" > <span><button class="submit">Submitte here</button></span>
+        </div>
+             <div style="margin-top: 1vw;">
+                your previous gussing: <span class="previous"></span>
+             </div>
+        <div style="margin-top: 1vw;">
+            <h1 class="result"></h1>
+        </div>
+        <div class="startnewgame"></div>
+
+    </div>
+
+    
+</body>
+<script>
+    let Gamevalue=Math.floor(Math.random()*100+1) 
+    console.log(Gamevalue)
+    let chance=document.querySelector('.chance')
+    let input=document.querySelector('.input')
+    let submit=document.querySelector('.submit')
+    let previous=document.querySelector('.previous')
+    let result=document.querySelector('.result')
+    let startnewgame=document.querySelector('.startnewgame')
+    let play=true
+   let num=1
+   let p=document.createElement('button')
+
+      if(play){
+        submit.addEventListener('click',(e)=>{
+            e.preventDefault()
+            let Guss=parseInt(input.value)
+             validation(Guss)
+        })
+    }
+
+
+
+     function validation(guss){
+     if(isNaN(guss)){
+    alert("Invalid value")
+    }else if(guss>100){
+            alert('It high make it low')
+         }else if(guss<1){
+            alert('It to low') 
+         } 
+         else{
+            if( num===10){
+             displaymsg('you loss your turn is over')
+             endgame(guss)
+         }else{
+            check(guss)
+            diplay(guss)
+         }
+
+      }
+    
+     }
+     function check(guss){
+        if(guss==Gamevalue){
+            displaymsg('you win')
+            endgame(guss)
+        }else if(guss<Gamevalue){
+            displaymsg('yow low')
+           
+
+        }else if(guss>Gamevalue){
+            displaymsg('you high')
+            
+        }
+
+     }
+     function displaymsg(msg){
+        result.innerHTML=`<h1>${msg}</h1>`
+     }
+     function diplay(guss){
+         input.value=''
+         previous.innerHTML+=guss
+         chance.innerHTML=`${10-num}`
+         num++
+     }
+     function endgame(guss){
+        num=1
+         input.value=''
+         play=false
+         input.setAttribute('disabled',"")
+         previous.innerHTML+=guss
+         p.setAttribute('demobutt','')
+         p.innerHTML='submit butt'
+         startnewgame.appendChild(p)
+        p.addEventListener('click',()=>{
+            startnewgame.removeChild(p)
+            playgame()
+        })
+         
+
+     }
+
+function playgame(){
+    p=document.createElement('button')
+    play=true
+    input.removeAttribute('disabled','')
+    chance.innerHTML=10
+    result.innerHTML=''
+    Gamevalue=0;
+    previous.innerHTML=''
+    Gamevalue=Math.floor(Math.random()*100+1)
+    console.log(Gamevalue)
+   
+
+ 
+}
+    
+ 
+    
+   
+
+    
+</script>
+</html>
+
+
