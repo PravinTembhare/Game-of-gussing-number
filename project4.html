@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap By SKILLHUB</title>
+    <style>
+        nav{
+            background-color: black;
+            height: 4rem;
+            text-align: center;
+            color: aliceblue;
+        }
+        .hi{
+            text-align: center;
+        }
+        .hi p{
+            margin-top: 2rem;
+        }
+    </style>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet">
+  </head>
+  <body>
+   <nav>
+   <h1>Number gussing game</h1>
+   </nav>
+   <div class="hi">
+    <p>Try and gusses the number 1 to 100</p>
+    <p>you have 10 attempt to guss the right number</p><br>
+    <form action="">
+<label style="font-size: 3rem;"> Gusses the number </label><br>
+<input type="number" style="border-radius: 1rem; box-sizing: border-box; margin-top: 2rem;" id="userinput">
+<input type="button" value="submit here" style="border-radius: 1rem; background-color: aliceblue;" id="submit">
+
+
+</form>
+<div class="result">
+<p> Prviouse gusses:<span class="gusses"></span>  </p>
+<p> Remaining gusses:<span class="lastremain">10</span>  </p>
+<p id="lowhi" style="color: black;"></p>
+
+
+</div>
+
+   </div>
+   
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" ></script>
+    <script src="project4.js"></script>
+  </body>
+</html>
